@@ -1,0 +1,5 @@
+skin_cancer_vgg16_cpu_model.pth
+soil_model.pth
+soil_X_scaler.pth
+soil_Y_scaler.pth
+model (1).pth

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <title>Soil Fertility Prediction</title>
+<style>
+
+body { 
+  background: #732025;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 30px;
+}
+button{
+  width: 300px;
+  height: 50px;
+  margin-left: 500px;
+  margin-top: 50px;
+}
+input, select { 
+  margin-bottom: 10px; 
+  background: rgba(0,0,0,0.3);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  width:400px;
+}
+.class1{
+  column-count: 2;
+}
+.desired-type {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1><center>Predict Soil Fertility</center></h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('soilfertility')}}"method="post">
+    <div class = "class1" >
+      <input type="text" name="0" placeholder="NO3(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="1" placeholder="NH4(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="2" placeholder="P(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="3" placeholder="SO4(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="4" placeholder="K(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="5" placeholder="B(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="6" placeholder="Organic Matter(%age)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="7" placeholder="pH(pH)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="8" placeholder="Zn(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="9" placeholder="Cu(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="10" placeholder="Fe(ppm)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="11" placeholder="Ca(meq/100g)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="12" placeholder="Mg(meq/100g)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+      <input type="text" name="13" placeholder="Na(meq/100g)" required="required" size="50" pattern="^\d*(\.\d{0,2})?$" title="please enter numbers only"/><br>
+    </div>
+    
+    <div class="desired-type">
+      <label for="desired_type">Desired Soil Type:</label>
+      <select name="desired_type" id="desired_type">
+        <option value="">Select desired soil type</option>
+        <option value="Bad">Bad</option>
+        <option value="Less Fertile">Less Fertile</option>
+        <option value="High Fertile">High Fertile</option>
+      </select>
+    </div>
+
+    <button type="submit">Predict</button>
+    </form>
+</div>
+</body>
+</html>

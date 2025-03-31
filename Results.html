@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soil Fertility Results</title>
+<style>
+body { 
+  background: #732025;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 30px;
+  padding: 20px;
+}
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.3);
+  padding: 20px;
+  border-radius: 8px;
+}
+h1, h2 {
+  text-align: center;
+  color: #fff;
+}
+.status {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 4px;
+}
+.bad {
+  background: #ff4444;
+}
+.less-fertile {
+  background: #ffbb33;
+}
+.high-fertile {
+  background: #00C851;
+}
+.nutrient-analysis {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  line-height: 1.6;
+}
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #fff;
+  color: #732025;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <div class="result-container">
+    <h1>Soil Fertility Analysis Results</h1>
+    
+    <div class="status {% if current_status == 'Bad' %}bad{% elif current_status == 'Less Fertile' %}less-fertile{% else %}high-fertile{% endif %}">
+      Current Soil Status: {{ current_status }}
+    </div>
+    
+    <h2>Fertility Score: {{ prediction_text }}%</h2>
+
+    {% if recommendations %}
+      <div class="nutrient-analysis">
+        <h2>Nutrient Analysis</h2>
+        <div style="white-space: pre-line;">{{ recommendations }}</div>
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="back-button">Back to Input Form</a>
+  </div>
+</body>
+</html>

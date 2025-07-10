@@ -71,6 +71,7 @@ def predict_skin():
 @app.route("/predict_presoil", methods=["POST"])
 def predict_presoil():
     if "file" not in request.files:
+        
         return jsonify({"error": "No file uploaded"}), 400
     
     file = request.files["file"]

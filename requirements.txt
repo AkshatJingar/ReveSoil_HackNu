@@ -1,5 +1,3 @@
-torch
-torchvision
 flask
 pandas
 numpy
